@@ -23,3 +23,8 @@ brew cask install visual-studio-code
 
 # Install docker
 brew cask install docker
+
+# Install scala and spark
+brew install scala
+brew cask install homebrew/cask-versions/adoptopenjdk8
+brew install apache-spark
