@@ -28,3 +28,7 @@ brew cask install docker
 brew install scala
 brew cask install homebrew/cask-versions/adoptopenjdk8
 brew install apache-spark
+
+
+# Install awscli
+brew install awscli

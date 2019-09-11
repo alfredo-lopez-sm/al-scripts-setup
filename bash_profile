@@ -1,6 +1,5 @@
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
-
 # Alias
 alias ll='ls -als'
 alias home='cd /Users/$(whoami)'
@@ -15,3 +14,6 @@ alias dps='docker ps'
     [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
         . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 }
+
+# AWS completion
+complete -C '$(which aws_completer)' aws
