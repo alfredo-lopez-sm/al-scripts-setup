@@ -19,6 +19,28 @@ brew install gradle
 
 # Install ides
 brew cask install intellij-idea
+
+function install_idea_plugin() {
+    current_dir=$(pwd)
+    plugin_dir=$(echo ~/Library/Application\ Support/IntelliJIdea*)
+
+    cd "/tmp" || return
+
+    key=$1
+    url=$2
+    filename=$(echo $key*.zip)
+    curl -O $url
+    echo "$plugin_dir"
+    unzip "$filename" -d "$plugin_dir"
+
+    echo "successfully installed "$filename
+    cd "$current_dir" || return
+    
+    return 0
+}
+
+install_idea_plugin "lombok" "https://plugins.jetbrains.com/files/6317/67665/lombok-plugin-0.26.2-2019.2.zip"
+
 brew cask install visual-studio-code
 
 # Install docker
@@ -32,3 +54,6 @@ brew install apache-spark
 
 # Install awscli
 brew install awscli
+
+# Install travis
+brew install travis
