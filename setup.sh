@@ -29,17 +29,23 @@ function install_idea_plugin() {
     key=$1
     url=$2
     filename=$(echo $key*.zip)
-    curl -O $url
+    curl -O "$url"
     echo "$plugin_dir"
     unzip "$filename" -d "$plugin_dir"
 
-    echo "successfully installed "$filename
+    echo "successfully installed $filename"
     cd "$current_dir" || return
     
     return 0
 }
 
 install_idea_plugin "lombok" "https://plugins.jetbrains.com/files/6317/67665/lombok-plugin-0.26.2-2019.2.zip"
+install_idea_plugin "php-192" "https://plugins.jetbrains.com/files/6610/68675/php-192.6603.42.zip"
+install_idea_plugin "python" "https://plugins.jetbrains.com/files/631/68553/python.zip"
+install_idea_plugin "scala-intellij" "https://plugins.jetbrains.com/files/1347/68482/scala-intellij-bin-2019.3.3.zip"
+install_idea_plugin "SonarLint" "https://plugins.jetbrains.com/files/7973/68167/SonarLint-4.1.1.3345.zip"
+install_idea_plugin "sonar-intellij-plugin" "https://plugins.jetbrains.com/files/7238/68250/sonar-intellij-plugin-2.8.1.zip"
+
 
 brew cask install visual-studio-code
 
