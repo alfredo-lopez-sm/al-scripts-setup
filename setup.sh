@@ -20,6 +20,7 @@ brew install gradle
 # Install ides
 brew cask install intellij-idea
 
+# Installs plugins in the ide
 function install_idea_plugin() {
     current_dir=$(pwd)
     plugin_dir=$(echo ~/Library/Application\ Support/IntelliJIdea*)
@@ -46,6 +47,38 @@ install_idea_plugin "scala-intellij" "https://plugins.jetbrains.com/files/1347/6
 install_idea_plugin "SonarLint" "https://plugins.jetbrains.com/files/7973/68167/SonarLint-4.1.1.3345.zip"
 install_idea_plugin "sonar-intellij-plugin" "https://plugins.jetbrains.com/files/7238/68250/sonar-intellij-plugin-2.8.1.zip"
 
+# Adds the code formatting
+function install_idea_template() {
+    current_dir=$(pwd)
+    style_dir=$(echo ~/Library/Preferences/IntelliJIdea*/codestyles)
+    options_dir=$(echo ~/Library/Preferences/IntelliJIdea*/options)
+    style_name=Searchmetrics
+
+    cd "/tmp" || return
+
+    rm -rf "java-code-style"
+    git clone git@github.com:searchmetrics/java-code-style.git
+
+    rm "$style_dir/Searchmetrics.xml"
+    cp  "java-code-style/src/main/resources/code_style_templates.xml" "$style_dir/$style_name.xml"
+
+    content='<application> \n
+      <component name="CodeStyleSettingsManager"> \n
+        <option name="PER_PROJECT_SETTINGS"> \n
+          <value version="173" /> \n
+        </option> \n
+        <option name="PREFERRED_PROJECT_CODE_STYLE" value="'$style_name'" /> \n
+        </component> \n
+      </application>'
+
+    echo -e $content > "$options_dir/code.style.schemes"
+
+    cd "$current_dir" || return
+
+    return 0
+}
+
+install_idea_template
 
 brew cask install visual-studio-code
 
