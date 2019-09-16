@@ -3,14 +3,15 @@
 brew tap caskroom/cask
 brew update
 
-# Install java
-brew cask install java11
-
 # Install git
 brew install git
 git config --global user.name "Alfredo Lopez"
 git config --global user.email "a.lopez@searchmetrics.com"
 
+
+# Install languages
+brew cask install java11
+brew install php
 
 # Install build tools
 brew install maven
@@ -18,6 +19,7 @@ brew install gradle
 
 
 # Install ides
+brew cask install visual-studio-code
 brew cask install intellij-idea
 
 # Installs plugins in the ide
@@ -36,7 +38,7 @@ function install_idea_plugin() {
 
     echo "successfully installed $filename"
     cd "$current_dir" || return
-    
+
     return 0
 }
 
@@ -77,10 +79,8 @@ function install_idea_template() {
 
     return 0
 }
-
 install_idea_template
 
-brew cask install visual-studio-code
 
 # Install docker
 brew cask install docker
@@ -96,3 +96,6 @@ brew install awscli
 
 # Install travis
 brew install travis
+
+# Install completions
+brew install bash-completion@2

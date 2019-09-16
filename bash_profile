@@ -22,6 +22,8 @@ alias dps='docker ps'
 # AWS completion
 complete -C '$(which aws_completer)' aws
 
+# Generic completions
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # PS1
 parse_git_branch() {
