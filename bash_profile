@@ -1,6 +1,7 @@
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 
+export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 # Alias

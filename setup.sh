@@ -1,6 +1,7 @@
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap caskroom/cask
+brew tap adoptopenjdk/openjdk
 brew update
 
 # Install git
@@ -10,7 +11,7 @@ git config --global user.email "a.lopez@searchmetrics.com"
 
 
 # Install languages
-brew cask install java11
+brew cask install caskroom/versions/adoptopenjdk8
 brew install php
 
 # Install build tools
