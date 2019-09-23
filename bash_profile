@@ -20,6 +20,29 @@ alias dps='docker ps'
         . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 }
 
+# SSH completion
+_complete_ssh_hosts ()
+{
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    comp_ssh_hosts=`cat ~/.ssh/known_hosts 2>/dev/null | \
+                    cut -f 1 -d ' ' | \
+                    sed -e s/,.*//g | \
+                    grep -v ^# | \
+                    uniq | \
+                    grep -v "\[" ;
+                    cat ~/.ssh/config 2>/dev/null | \
+                    grep "^Host " | \
+                    awk '{print $2}';
+                    cat /etc/hosts 2>/dev/null| \
+                    grep --extended-regexp "^[0-9]{3}\." | \
+                    awk '{print $2}'
+                    `
+    COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+    return 0
+}
+complete -F _complete_ssh_hosts ssh
+
 # AWS completion
 complete -C '$(which aws_completer)' aws
 
