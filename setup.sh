@@ -103,3 +103,7 @@ brew install bash-completion@2
 
 # Install encription
 brew install gnupg
+
+# Install openfortivpn, It has to be manually installed by the prompt
+brew cask install forticlient
+open /usr/local/Caskroom/forticlient/*/FortiClientUpdate.ap
