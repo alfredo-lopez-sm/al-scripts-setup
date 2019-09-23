@@ -100,3 +100,6 @@ brew install travis
 
 # Install completions
 brew install bash-completion@2
+
+# Install encription
+brew install gnupg
