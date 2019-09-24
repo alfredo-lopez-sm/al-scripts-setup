@@ -1,4 +1,9 @@
+#!/bin/bash
 
+# Load helper functions
+. helpers.sh
+
+# Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap caskroom/cask
 brew tap adoptopenjdk/openjdk
@@ -23,25 +28,6 @@ brew install gradle
 brew cask install visual-studio-code
 brew cask install intellij-idea
 
-# Installs plugins in the ide
-function install_idea_plugin() {
-    current_dir=$(pwd)
-    plugin_dir=$(echo ~/Library/Application\ Support/IntelliJIdea*)
-
-    cd "/tmp" || return
-
-    key=$1
-    url=$2
-    filename=$(echo $key*.zip)
-    curl -O "$url"
-    echo "$plugin_dir"
-    unzip "$filename" -d "$plugin_dir"
-
-    echo "successfully installed $filename"
-    cd "$current_dir" || return
-
-    return 0
-}
 
 install_idea_plugin "lombok" "https://plugins.jetbrains.com/files/6317/67665/lombok-plugin-0.26.2-2019.2.zip"
 install_idea_plugin "php-192" "https://plugins.jetbrains.com/files/6610/68675/php-192.6603.42.zip"
@@ -51,62 +37,13 @@ install_idea_plugin "SonarLint" "https://plugins.jetbrains.com/files/7973/68167/
 install_idea_plugin "sonar-intellij-plugin" "https://plugins.jetbrains.com/files/7238/68250/sonar-intellij-plugin-2.8.1.zip"
 install_idea_plugin "aws-jetbrains-toolkit" "https://plugins.jetbrains.com/files/11349/69239/aws-jetbrains-toolkit-1.6.zip"
 
-# Adds the code formatting
-function install_idea_template() {
-    current_dir=$(pwd)
-    style_dir=$(echo ~/Library/Preferences/IntelliJIdea*/codestyles)
-    options_dir=$(echo ~/Library/Preferences/IntelliJIdea*/options)
-    style_name=Searchmetrics
-
-    cd "/tmp" || return
-
-    rm -rf "java-code-style"
-    git clone git@github.com:searchmetrics/java-code-style.git
-
-    rm "$style_dir/Searchmetrics.xml"
-    cp  "java-code-style/src/main/resources/code_style_templates.xml" "$style_dir/$style_name.xml"
-
-    content='<application> \n
-      <component name="CodeStyleSettingsManager"> \n
-        <option name="PER_PROJECT_SETTINGS"> \n
-          <value version="173" /> \n
-        </option> \n
-        <option name="PREFERRED_PROJECT_CODE_STYLE" value="'$style_name'" /> \n
-        </component> \n
-      </application>'
-
-    echo -e $content > "$options_dir/code.style.schemes"
-
-    cd "$current_dir" || return
-
-    return 0
-}
+# Install the template for the code standards
 install_idea_template
 
 
-
 # Install AWS toolkit and configure it for aws
-brew tap aws/ta
+brew tap aws/tap
 brew install  aws/tap/aws-sam-cli
-
-function configure_aws_toolkit() {
-
-    options_dir=$(echo ~/Library/Preferences/IntelliJIdea*/options)
-
-    content='<application> \n
-              <component name="aws"> \n
-                <option name="promptedForTelemetry" value="true" /> \n
-                <option name="telemetryEnabled" value="false" /> \n
-              </component> \n
-              <component name="sam"> \n
-                <option name="savedExecutablePath" value="/usr/local/bin/sam" /> \n
-              </component> \n
-            </application>'
-
-    echo -e $content > "$options_dir/aws.xml"
-
-    return 0
-}
 configure_aws_toolkit
 
 
