@@ -49,6 +49,7 @@ install_idea_plugin "python" "https://plugins.jetbrains.com/files/631/68553/pyth
 install_idea_plugin "scala-intellij" "https://plugins.jetbrains.com/files/1347/68482/scala-intellij-bin-2019.3.3.zip"
 install_idea_plugin "SonarLint" "https://plugins.jetbrains.com/files/7973/68167/SonarLint-4.1.1.3345.zip"
 install_idea_plugin "sonar-intellij-plugin" "https://plugins.jetbrains.com/files/7238/68250/sonar-intellij-plugin-2.8.1.zip"
+install_idea_plugin "aws-jetbrains-toolkit" "https://plugins.jetbrains.com/files/11349/69239/aws-jetbrains-toolkit-1.6.zip"
 
 # Adds the code formatting
 function install_idea_template() {
@@ -81,6 +82,32 @@ function install_idea_template() {
     return 0
 }
 install_idea_template
+
+
+
+# Install AWS toolkit and configure it for aws
+brew tap aws/ta
+brew install  aws/tap/aws-sam-cli
+
+function configure_aws_toolkit() {
+
+    options_dir=$(echo ~/Library/Preferences/IntelliJIdea*/options)
+
+    content='<application> \n
+              <component name="aws"> \n
+                <option name="promptedForTelemetry" value="true" /> \n
+                <option name="telemetryEnabled" value="false" /> \n
+              </component> \n
+              <component name="sam"> \n
+                <option name="savedExecutablePath" value="/usr/local/bin/sam" /> \n
+              </component> \n
+            </application>'
+
+    echo -e $content > "$options_dir/aws.xml"
+
+    return 0
+}
+configure_aws_toolkit
 
 
 # Install docker
