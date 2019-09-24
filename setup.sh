@@ -36,6 +36,7 @@ install_idea_plugin "scala-intellij" "https://plugins.jetbrains.com/files/1347/6
 install_idea_plugin "SonarLint" "https://plugins.jetbrains.com/files/7973/68167/SonarLint-4.1.1.3345.zip"
 install_idea_plugin "sonar-intellij-plugin" "https://plugins.jetbrains.com/files/7238/68250/sonar-intellij-plugin-2.8.1.zip"
 install_idea_plugin "aws-jetbrains-toolkit" "https://plugins.jetbrains.com/files/11349/69239/aws-jetbrains-toolkit-1.6.zip"
+install_idea_plugin "a5ec0c618c4e8ff5" "https://plugins.jetbrains.com/files/7371/67781/a5ec0c618c4e8ff5-0.6.14.zip"
 
 # Install the template for the code standards
 install_idea_template
@@ -67,6 +68,7 @@ brew install bash-completion@2
 
 # Install encription
 brew install gnupg
+brew cask install gpg-suite
 
 # Install openfortivpn, It has to be manually installed by the prompt
 brew cask install forticlient
