@@ -10,6 +10,8 @@ alias home='cd /Users/$(whoami)'
 
 alias dstop='docker stop'
 alias dstopall='docker stop $(docker ps -a -q)'
+alias drmall='docker stop $(docker ps -a -q)'
+alias dpsall='docker ps -a'
 alias drm='docker rm'
 alias dps='docker ps'
 
