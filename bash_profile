@@ -8,12 +8,19 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 alias ll='ls -als'
 alias home='cd /Users/$(whoami)'
 
+#  Docker alias
 alias dstop='docker stop'
 alias dstopall='docker stop $(docker ps -a -q)'
 alias drmall='docker stop $(docker ps -a -q)'
 alias dpsall='docker ps -a'
 alias drm='docker rm'
 alias dps='docker ps'
+
+#  Brew alias
+alias bslist='brew services list'
+alias bsrestart='brew services restart'
+alias bsstart='brew services start'
+alias bsstop='brew services stop'
 
 # Git bash completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
