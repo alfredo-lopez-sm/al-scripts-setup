@@ -48,8 +48,9 @@ brew install  aws/tap/aws-sam-cli
 configure_aws_toolkit
 
 
-# Install docker
+# Install docker and composer
 brew cask install docker
+brew composer install
 
 # Install scala and spark
 brew install scala
