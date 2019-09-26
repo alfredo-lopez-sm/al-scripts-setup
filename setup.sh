@@ -50,7 +50,7 @@ configure_aws_toolkit
 
 # Install docker and composer
 brew cask install docker
-brew composer install
+brew install composer
 
 # Install scala and spark
 brew install scala
