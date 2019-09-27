@@ -14,7 +14,6 @@ brew install git
 git config --global user.name "Alfredo Lopez"
 git config --global user.email "a.lopez@searchmetrics.com"
 
-
 # Install languages
 brew cask install caskroom/versions/adoptopenjdk8
 brew install php
@@ -23,11 +22,9 @@ brew install php
 brew install maven
 brew install gradle
 
-
 # Install ides
 brew cask install visual-studio-code
 brew cask install intellij-idea
-
 
 install_idea_plugin "lombok" "https://plugins.jetbrains.com/files/6317/67665/lombok-plugin-0.26.2-2019.2.zip"
 install_idea_plugin "php-192" "https://plugins.jetbrains.com/files/6610/68675/php-192.6603.42.zip"
@@ -41,12 +38,10 @@ install_idea_plugin "a5ec0c618c4e8ff5" "https://plugins.jetbrains.com/files/7371
 # Install the template for the code standards
 install_idea_template
 
-
 # Install AWS toolkit and configure it for aws
 brew tap aws/tap
-brew install  aws/tap/aws-sam-cli
+brew install aws/tap/aws-sam-cli
 configure_aws_toolkit
-
 
 # Install docker and composer
 brew cask install docker
@@ -54,9 +49,8 @@ brew install composer
 
 # Install scala and spark
 brew install scala
-brew cask install homebrew/cask-versions/adoptopenjdk8
+brew cask install adoptopenjdk/openjdk/adoptopenjdk8
 brew install apache-spark
-
 
 # Install awscli
 brew install awscli
@@ -69,8 +63,15 @@ brew install bash-completion@2
 
 # Install encription
 brew install gnupg
-brew cask install gpg-suite
+
+# Install elastic search
+brew tap elastic/tap
+brew install elastic/tap/elasticsearch-full
+brew install elastic/tap/kibana-full
 
 # Install openfortivpn, It has to be manually installed by the prompt
-brew cask install forticlient
-open /usr/local/Caskroom/forticlient/*/FortiClientUpdate.ap
+prompt "You need to install the vpn manually"
+
+# Link the file to the bash profile
+ln -sf "/Users/$(whoami)/IdeaProjects/al-scripts-setup-master/bash_profile" "/Users/$(whoami)/.bash_profile"
+source "/Users/$(whoami)/.bash_profile"
