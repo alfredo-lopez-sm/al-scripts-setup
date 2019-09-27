@@ -73,5 +73,7 @@ brew install elastic/tap/kibana-full
 prompt "You need to install the vpn manually"
 
 # Link the file to the bash profile
-ln -sf "/Users/$(whoami)/IdeaProjects/al-scripts-setup-master/bash_profile" "/Users/$(whoami)/.bash_profile"
-source "/Users/$(whoami)/.bash_profile"
+user=$(whoami)
+touch "/Users/$user/.bash_profile"
+ln -s "/Users/$user/IdeaProjects/al-scripts-setup-master/bash_profile" "/Users/$user/.bash_profile"
+source "/Users/$user/.bash_profile"
