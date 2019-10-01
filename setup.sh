@@ -84,7 +84,7 @@ install_idea_plugin "symfony-plugin" "https://plugins.jetbrains.com/files/7219/6
 prompt "You need to install the vpn manually"
 
 # Link the file to the bash profile
-user=$(whoami)
-touch "/Users/$user/.bash_profile"
-ln -s "/Users/$user/IdeaProjects/al-scripts-setup-master/bash_profile" "/Users/$user/.bash_profile"
-source "/Users/$user/.bash_profile"
+touch "$HOME/.bash_profile"
+ln -s "$HOME/IdeaProjects/al-scripts-setup-master/bash_profile" "$HOME/.bash_profile"
+# shellcheck source=$HOME/.bash_profile
+source "$HOME/.bash_profile"
