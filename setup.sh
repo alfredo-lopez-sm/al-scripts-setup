@@ -67,8 +67,8 @@ brew tap elastic/tap
 brew install elastic/tap/elasticsearch-full
 brew install elastic/tap/kibana-full
 
-# Install sqlpro
-brew cask install sequel-pro
+# Install mysqlworkbench cuz sqlpro is a $#$%$ :)
+brew cask install mysqlworkbench
 
 # Install php stuff
 brew install php
