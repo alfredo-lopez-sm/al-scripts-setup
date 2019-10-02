@@ -67,6 +67,9 @@ brew tap elastic/tap
 brew install elastic/tap/elasticsearch-full
 brew install elastic/tap/kibana-full
 
+# Install sqlpro
+brew cask install sequel-pro
+
 # Install php stuff
 brew install php
 brew install composer
