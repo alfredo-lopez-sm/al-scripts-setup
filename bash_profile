@@ -25,6 +25,8 @@ alias bslist='brew services list'
 alias bsrestart='brew services restart'
 alias bsstart='brew services start'
 alias bsstop='brew services stop'
+alias cellar="cd /usr/local/Cellar"
+alias cask="cd /usr/local/Caskroom"
 
 # Git bash completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
