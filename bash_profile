@@ -12,6 +12,7 @@ export PATH="~/.symfony/bin:$PATH"
 alias ll='ls -als'
 alias home='cd /Users/$(whoami)'
 alias projects='cd ~/IdeaProjects'
+alias clone='cd ~/IdeaProjects/ && git clone'
 
 #  Docker alias
 alias dstop='docker stop'
