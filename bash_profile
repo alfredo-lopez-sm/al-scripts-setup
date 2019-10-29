@@ -12,7 +12,7 @@ export PATH="~/.symfony/bin:$PATH"
 alias ll='ls -als'
 alias home='cd /Users/$(whoami)'
 alias projects='cd ~/IdeaProjects'
-alias clone='cd ~/IdeaProjects/ && git clone'
+alias clone='_clone'
 
 #  Docker alias
 alias dstop='docker stop'
@@ -35,6 +35,22 @@ alias cask="cd /usr/local/Caskroom"
     # if not found in /usr/local/etc, try the brew --prefix location
     [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
         . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+}
+
+# Clone git
+_clone ()
+{
+    cd "/Users/alfredolopez/IdeaProjects"
+    git clone "$1"
+    name=$(echo "$1" | sed -E 's/.*searchmetrics\/(.*)\.git/\1/')
+    name="/Users/alfredolopez/IdeaProjects/$name"
+    echo ""
+    echo "******************************"
+    echo "Cloned into:"
+    echo "$name"
+    echo "******************************"
+    echo ""
+    return 0
 }
 
 # SSH completion
