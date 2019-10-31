@@ -1,4 +1,7 @@
 
+# Silence bash from mac for now
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # get the credentials for satis
 source "/Users/$(whoami)/.satis/credentials.sh"
 
