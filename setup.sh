@@ -84,11 +84,11 @@ install_idea_plugin "twig" "https://plugins.jetbrains.com/files/7303/69469/twig.
 install_idea_plugin "symfony-plugin" "https://plugins.jetbrains.com/files/7219/69177/symfony-plugin-0.19.184.zip"
 
 
+# Link the file to the bash profile
+touch "$HOME/.zshrc"
+echo "Do the linking by hand otherwise it will not work"
+echo "ln -sF $HOME/IdeaProjects/al-scripts-setup-master/zshrc $HOME/.zshrc"
+source "$HOME/.zshrc"
+
 # Install openfortivpn, It has to be manually installed by the prompt
 prompt "You need to install the vpn manually"
-
-# Link the file to the bash profile
-touch "$HOME/.bash_profile"
-ln -s "$HOME/IdeaProjects/al-scripts-setup-master/bash_profile" "$HOME/.bash_profile"
-# shellcheck source=$HOME/.bash_profile
-source "$HOME/.bash_profile"
