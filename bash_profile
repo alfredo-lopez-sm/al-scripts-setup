@@ -5,7 +5,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # get the credentials for satis
 source "/Users/$(whoami)/.satis/credentials.sh"
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
