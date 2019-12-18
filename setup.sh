@@ -16,6 +16,7 @@ git config --global user.email "a.lopez@searchmetrics.com"
 
 # Install java
 brew cask install caskroom/versions/adoptopenjdk8
+brew install jenv
 
 # Install build tools
 brew install maven

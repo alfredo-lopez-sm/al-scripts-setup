@@ -5,8 +5,6 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # get the credentials for satis
 source "/Users/$(whoami)/.satis/credentials.sh"
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
-
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="~/.symfony/bin:$PATH"
@@ -89,4 +87,8 @@ complete -C '$(which aws_completer)' aws
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
 export PS1="\u@\h \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+# Evaluation for java env needed
+eval "$(jenv init -)"
